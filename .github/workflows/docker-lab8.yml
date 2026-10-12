@@ -1,0 +1,24 @@
+name: Lab 8 - Docker Hello World
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  docker-lab:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check Docker installation
+        run: |
+          docker --version
+          docker info
+
+      - name: Run Hello World container
+        run: docker run hello-world
+
+      - name: Show running containers
+        run: docker ps
+
+      - name: Show all containers
+        run: docker ps -a
